@@ -1,0 +1,32 @@
+.search-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background-color: #f0f4f9;
+    padding: 10px 20px;
+    border-radius: 50px;
+
+    input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 8px;
+        font-size: 18px;
+    }
+    
+    div {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+    
+        img {
+            width: 24px;
+            cursor: pointer;
+        }
+    }
+
+
+}
