@@ -30,7 +30,7 @@ const ContextProvider = (props) => {
         setShowResult(false);
     };
 
-    const onSent = async (prompt) => {
+    const onSent = async (prompt, addToHistory = true) => {
         setResultData("");
         setLoading(true);
         setShowResult(true);
@@ -47,7 +47,10 @@ const ContextProvider = (props) => {
             }
 
             setRecentPrompt(usedPrompt);
-            setPrevPrompts((prev) => [...prev, usedPrompt]);
+
+            if(addToHistory) {
+                setPrevPrompts((prev) => prev.includes(usedPrompt) ? prev : [...prev, usedPrompt]);
+            }
 
             response = await main(usedPrompt);
             
@@ -69,12 +72,9 @@ const ContextProvider = (props) => {
                 }
             });
 
-            let newResponse2 = newResponse.split("*").join('<br/>');
-            let newResponseArray = newResponse2.split(" ");
-
-            newResponseArray.forEach((word, i) => {
-                delayTyping(i, word + " ")
-            }); 
+            let formattedResponse = newResponse.split("*").join('<br/>').split(" ");
+            
+            formattedResponse.forEach((word, i) => delayTyping(i, word + " ")); 
         } catch(error) {
             console.error('Error during prompt send:', error);
             setResultData('An error occurred while processing your request.');
