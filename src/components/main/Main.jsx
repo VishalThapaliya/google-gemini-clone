@@ -56,7 +56,15 @@ const Main = () => {
 
                         <div className="result-data">
                             <img src={assets.gemini_icon} alt="gemini icon" />
-                            <p dangerouslySetInnerHTML={{__html:resultData}}></p>
+                            {loading 
+                                && <div className="loader">
+                                        <hr />
+                                        <hr />
+                                        <hr />
+                                    </div> 
+                                || <p className='result-text' dangerouslySetInnerHTML={{__html:resultData}}></p>
+                            }
+                            
                         </div>
                     </article>
                 }
