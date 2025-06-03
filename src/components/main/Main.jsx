@@ -38,7 +38,7 @@ const Main = () => {
             </nav>
 
             <div className="main-content">
-                {!showResult && 
+                {!showResult ? 
                     <>
                         <div className="greet">
                             <p><span>Hello, Bishal</span></p>
@@ -47,7 +47,7 @@ const Main = () => {
 
                         <Card cards={cards} />
                     </>
-                || 
+                : 
                     <article className="result">
                         <div className="result-title">
                             <img src={assets.user_icon} alt="user icon" />
@@ -57,12 +57,12 @@ const Main = () => {
                         <div className="result-data">
                             <img src={assets.gemini_icon} alt="gemini icon" />
                             {loading 
-                                && <div className="loader">
+                                ? <div className="loader">
                                         <hr />
                                         <hr />
                                         <hr />
                                     </div> 
-                                || <p className='result-text' dangerouslySetInnerHTML={{__html:resultData}}></p>
+                                : <p className='result-text' dangerouslySetInnerHTML={{__html:resultData}}></p>
                             }
                             
                         </div>
