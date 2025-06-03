@@ -38,6 +38,39 @@
             }
         }
 
+        .result {
+            padding: 0 5%;
+            max-height: 70vh;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .result-title {
+                margin: 40px 0;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                img {
+                    width: 40px;
+                    border-radius: 50%;
+                }
+            }
+
+            .result-data {
+                display: flex;
+                align-items: start;
+                gap: 20px;
+                
+                img {
+                    width: 40px;
+                    border-radius: 50%;
+                }
+            }
+        }
+
         .main-bottom {
             position: absolute;
             bottom: 0;
