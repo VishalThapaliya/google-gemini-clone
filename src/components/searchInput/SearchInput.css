@@ -27,6 +27,23 @@
             cursor: pointer;
         }
     }
+}
 
+@media (max-width: 600px) {
+    .search-box {
+        padding: 5px 10px;
 
+        input {
+            flex: none;
+            width: 150px;
+        }
+
+        div {
+            gap: 5px;
+
+            img {
+                width: 20px;
+            }
+        }
+    }
 }
